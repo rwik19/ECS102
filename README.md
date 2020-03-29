@@ -1,2 +1,2 @@
 # ECS102
-C Programming files for theECS102 course
+C Programming files for the ECS102 course
