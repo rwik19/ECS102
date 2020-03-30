@@ -1,3 +1,6 @@
+/*This program counts the number of words, letters, vowels and blank spaces in a file named essay.txt located in the same 
+directory.*/
+
 #include<stdio.h>
 #include<ctype.h>
 #include<stdlib.h>
@@ -30,6 +33,8 @@ int main(void)
             {
                 vowels++;
             }
+            /*If we have a letter then what was the character just before it?
+            If it was a letter or a hyphen, then we have no new word*/
             if(d)
             {
                 words++;
