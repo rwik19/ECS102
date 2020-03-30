@@ -1,3 +1,6 @@
+/*This program defines a function isprime that takes an int as input and return 1 if int is prime and 0 if int is not prime.
+If int is less than 2 isprime returns -1.*/
+
 #include<stdio.h>
 #include<math.h>
 
