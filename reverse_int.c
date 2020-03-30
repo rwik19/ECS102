@@ -1,3 +1,5 @@
+/*This program defines a function reverse that takes an int and returns its reverse.*/
+
 #include<stdio.h>
 
 int reverse(int);
