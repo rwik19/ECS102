@@ -18,8 +18,8 @@ int reverse(int n)
     while(n)
     {
         reverse *= 10;
-        reverse += n % 10;
-        n /= 10;
+        reverse += n % 10;  //Extract last digit from n and add to reverse.
+        n /= 10; //remove last digit from n.
     }
     return reverse;
 }

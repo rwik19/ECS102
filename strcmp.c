@@ -28,13 +28,15 @@ int Strlen(char *str)
 char *Tolower(char *str)
 {
     int n = Strlen(str);
-    char* str1 = malloc(n);
+    char* str1 = malloc(n); //allocate memory to store new string.
     for(int i=0;i<=n;++i)
     {
+        //Change and copy if char is upper case
         if(str[i]>='A' && str[i]<='Z')
         {
             str1[i] = str[i] + 32;
         }
+        //Simply copy
         else
         {
             str1[i] = str[i];
@@ -52,30 +54,21 @@ int Strcmp(char *Str1, char *Str2)
     int n2 = Strlen(str2);
     int flag=1;
     
-    /*if(n1 == n2)
-    {
-        for(int i=0; i < n1; ++i)
-        {
-            if(str1[i] != str2[i])
-            {
-                flag = 0; 
-            }
-        }
-        if(flag)
-        {
-            return 0;
-        }
-    }*/
     for(int i=0; i<n1 && i<n2; ++i)
     {
+        //str1 come before str2
         if(str1[i]<str2[i])
         {
             return 1;
         }
+
+        //str1 comes after str2
         else if(str1[i]>str2[i])
         {
             return -1;
         }
     }
+
+    //str1=str2
     return 0;
 }

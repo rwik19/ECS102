@@ -32,6 +32,8 @@ int isprime(int n)
     {
         return -1;
     }
+    
+    //Check divisibilty from 2 to sqrt(n).
     for(i = 2; i <= s; ++i)
     {
         if(n % i == 0)
