@@ -1,5 +1,5 @@
-/*This program generates a string of n random integers in [start,end] WITHOUT REPETITION. The string is stored in result array of
-size (end-star+1). Memory for result[] must be allocated in advance.*/
+/*This program generates a string of n random integers in [start,end] WITHOUT REPETITION. The string is stored in a result array.
+Memory for result[] must be allocated in advance.*/
 
 #include<stdio.h>
 #include<stdlib.h>
