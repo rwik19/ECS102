@@ -1,4 +1,4 @@
-//A dynamic que is implemented with help of a doubly linked list.
+//A dynamic queue is implemented with help of a doubly linked list.
 
 #include<stdio.h>
 #include<stdlib.h>
