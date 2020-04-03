@@ -11,7 +11,7 @@ typedef struct node
 }Stack;
 
 void Push(Stack **, int);
-int Pull(Stack **);
+int Pop(Stack **);
 int Peek(Stack *);
 int search(Stack *, int);
 void display(Stack *);
@@ -22,7 +22,7 @@ int main(void)
     int value, o = 1, index;
     while(o)
     {
-        printf("1.Push   2.Pull   3.Peek   4.Search  5.Display   0.Exit\n");
+        printf("1.Push   2.Pop   3.Peek   4.Search  5.Display   0.Exit\n");
         scanf("%d", &o);
         switch(o)
         {
@@ -34,7 +34,7 @@ int main(void)
             case 2: if(stack!=NULL)
                     {
                         index = stack->index;
-                        value = Pull(&stack);
+                        value = Pop(&stack);
                         printf("Value = %d at index = %d\n", value, index);
                     }
                     else
@@ -101,7 +101,7 @@ void Push(Stack **top, int value)
     *top = new;
 }
 
-int Pull(Stack **top)
+int Pop(Stack **top)
 {
     Stack *temp = *top;
     int value;
