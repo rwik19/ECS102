@@ -15,15 +15,8 @@ void display(int [][MAX]); //displays world
 
 int main(void)
 {
-    int world[MAX][MAX],i=0;
-    //create(world);
-    for(int i=0;i<MAX;i++)
-    {   for(int j=0;j<MAX;j++)
-        world[i][j] = 0;
-        {
-            world[i][5] = 1;
-        }
-    }
+    int world[MAX][MAX];
+    create(world);
     while(1)
     {
         display(world);
@@ -115,7 +108,6 @@ void evolve(int arr[][MAX])
 void display(int arr[][MAX])
 {
     setlocale(LC_CTYPE, "");
-    int x = 9633;
     for(int i=0;i<MAX;i++)
     {
         for(int j=0;j<MAX;j++)
