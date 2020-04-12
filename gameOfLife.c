@@ -3,48 +3,70 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
-#include <locale.h>
+#include<locale.h>
+#include<time.h>
 
-#define MAX 20 //Sets size of world
+#define MAX_R 45
+#define MAX_C 105 //Sets size of world
+#define N 3000
 
-void create(int[][MAX]); //Creates a random world
+void create(int[][MAX_C]); //Creates a random world
 int valid(int,int); //Checks for validity of indices of a matrix
-int neighbour(int [][MAX],int,int); //counts number of neighbours
-void evolve(int [][MAX]);  //evolves the world to next gen
-void display(int [][MAX]); //displays world
+int neighbour(int [][MAX_C],int,int); //counts number of neighbours
+void evolve(int [][MAX_C]);  //evolves the world to next gen
+void display(int [][MAX_C]); //displays world
 
 int main(void)
 {
-    int world[MAX][MAX];
+    int world[MAX_R][MAX_C];
+    
+    for(int i=0;i<MAX_R;++i)
+    {
+        for(int j=0;j<MAX_C;++j)
+        {
+            world[i][j] = 0;
+        }
+    }
     create(world);
+
     while(1)
     {
         display(world);
         evolve(world);
-        for(int i=0;i<2*MAX;++i)
+        for(int i=0;i<2*MAX_C;++i)
             printf("-");
-        printf("\n\n\n");
-        usleep(800000);
+        usleep(1000000);
         printf("\e[1;1H\e[2J");
+        printf("\n\n\n");
     }
 }
 
-void create(int arr[][MAX])
+void create(int arr[][MAX_C])
 {
-    for(int i=0;i<MAX;i++)
-        for(int j=0;j<MAX;j++)
+    int count=0;
+    srand(time(0));
+    for(int i=0;i<MAX_R;i++)
+    {
+        for(int j=0;j<MAX_C;j++)
+        {
             arr[i][j] = rand()%2;
+            if(arr[i][j])
+                count++;
+            if(count==N)
+                return;
+        }
+    }        
 }
 
 int valid(int i, int j)
 {
-    if(i>=0 && j>=0 && i<MAX && j<MAX)
+    if(i>=0 && j>=0 && i<MAX_R && j<MAX_C)
         return 1;
     else
         return 0;
 }
 
-int neighbour(int arr[][MAX], int i, int j)
+int neighbour(int arr[][MAX_C], int i, int j)
 {
     int count = 0;
     if(valid(i+1,j))
@@ -82,12 +104,12 @@ int neighbour(int arr[][MAX], int i, int j)
     return count;
 }
 
-void evolve(int arr[][MAX])
+void evolve(int arr[][MAX_C])
 {
-    int temp[MAX][MAX],n,i,j;
-    for(i=0;i<MAX;i++)
+    int temp[MAX_R][MAX_C],n,i,j;
+    for(i=0;i<MAX_R;i++)
     {
-        for(j=0;j<MAX;++j)
+        for(j=0;j<MAX_C;++j)
         {
             n = neighbour(arr,i,j);
             temp[i][j] = arr[i][j];
@@ -100,17 +122,17 @@ void evolve(int arr[][MAX])
                 temp[i][j] = 1;
         }
     }
-    for(i=0;i<MAX;i++)
-        for(j=0;j<MAX;j++)
+    for(i=0;i<MAX_R;i++)
+        for(j=0;j<MAX_C;j++)
             arr[i][j] = temp[i][j];
 }
 
-void display(int arr[][MAX])
+void display(int arr[][MAX_C])
 {
     setlocale(LC_CTYPE, "");
-    for(int i=0;i<MAX;i++)
+    for(int i=0;i<MAX_R;i++)
     {
-        for(int j=0;j<MAX;j++)
+        for(int j=0;j<MAX_C;j++)
         {
             if(arr[i][j])
                 printf("%lc",0x25a0);
