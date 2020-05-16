@@ -8,10 +8,11 @@ void permute(char *str, int i, int right);
 int main(void)
 {
     char numbers[4];
+    int n=3
     printf("Enter 3 digits: ");
     scanf("%s", numbers);
     
-    permute(numbers, 0, 2);
+    permute(numbers, 0, n-1);
 }
 
 void swap(char *x, char *y)
