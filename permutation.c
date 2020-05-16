@@ -1,16 +1,19 @@
-//Input 3 digits and output all possible permutations of the 3 digits.
+//Input n digits and output all possible permutations of the n digits.
 
 #include<stdio.h>
+#include<string.h>
+
+#define MAX 10
 
 void swap(char *x, char *y);
-void permute(char *str, int i, int right);
+void permute(char *str, int left, int right);
 
 int main(void)
 {
-    char numbers[4];
-    int n=3
-    printf("Enter 3 digits: ");
+    char numbers[MAX];
+    printf("Enter n digits: ");
     scanf("%s", numbers);
+    int n = strlen(numbers);
     
     permute(numbers, 0, n-1);
 }
