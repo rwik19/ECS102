@@ -4,7 +4,7 @@
 
 void pythaTriple(int a, int b)
 {
-    int x,y,n=1,count=0;
+    int x,y,n=1;
     float z;
     for(x = a;x*x*2<=b*b;x++)
     {
