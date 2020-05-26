@@ -10,7 +10,6 @@ void pythaTriple(int a, int b)
     {
         for(y = x;x*x+y*y<=b*b;y++)
         {
-            count++;
             z = sqrt(x*x+y*y);
             if(z-(int)z == 0)
                 printf("%d\t%d,%d,%d\n",n++,x,y,(int)z);
